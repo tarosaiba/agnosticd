@@ -1,6 +1,10 @@
 ---
 cloud_provider: ec2
 owner: root
+guid: saiba003
+sandbox_account_id: 752270192105
+infra_workloads:
+ - ocp4_workload_tl500
 
 ### AWS EC2 Environment settings
 
