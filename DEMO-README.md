@@ -30,7 +30,30 @@ aws_secret_access_key: "<KEY>"
 * 作成
 
 ```
-ansible-playbook ansible/main.yml -e@ansible/configs/base-rosa/default_vars.yml -e@base-rosa-var.yml -e@base-rosa-secret.yml
+ansible-playbook ansible/main.yml -e@ansible/configs/base-rosa/default_vars.yml -e@base-rosa-var.yml -e@base-rosa-var-custom.yml -e@base-rosa-secret.yml
 ```
 
 * 削除
+
+# Workload - OCP Plus
+https://github.com/redhat-cop/agnosticd/tree/5db35ea2f7bcff0bfa778aeb3c4f828cbfffbb8c/ansible/roles_ocp_workloads/ocp4_workload_plus
+
+```
+TARGET_HOST="107.20.156.140"
+ANSIBLE_USERNAME="ec2-user"
+WORKLOAD="ocp4_workload_automation_demo"
+GUID=saiba007
+KEY_FILE="/tmp/output_dir/ssh_provision_saiba007"
+ocp_username=cluster-admin
+ocp_password="Uhzoo-s9xB5-x3esf-r7g2h"
+
+ansible-playbook -i ${TARGET_HOST}, ./configs/ocp-workloads/ocp-workload.yml \
+    -e"ansible_ssh_private_key_file=${KEY_FILE}" \
+    -e"ansible_user=ec2-user" \
+    -e"ocp_username=${OCP_USERNAME}" \
+    -e"ocp_password=${ocp_password}" \
+    -e"ocp_workload=${WORKLOAD}" \
+    -e"silent=False" \
+    -e"guid=${GUID}" \
+    -e"ACTION=create"
+```
