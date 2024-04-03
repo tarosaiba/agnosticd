@@ -6,10 +6,10 @@
   register: whoami
   changed_when: false
 
-- name: Fail if not system:admin
-  fail:
-    msg: "Not connected to OCP as system:admin"
-  when: whoami.stdout != "system:admin"
+#- name: Fail if not system:admin
+#  fail:
+#    msg: "Not connected to OCP as system:admin"
+#  when: whoami.stdout != "system:admin"
 
 - name: Running ArgoCD Deployment Tasks
   include_tasks:
