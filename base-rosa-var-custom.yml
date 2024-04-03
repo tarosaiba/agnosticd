@@ -1,0 +1,7 @@
+guid: saiba007
+sandbox_account_id: 752270192105
+aws_region: us-east-1
+infra_workloads:
+ - ocp4_workload_automation_demo
+HostedZoneId: Z1VSVV64202UX7
+subdomain_base_suffix: "sandbox666.opentlc.com"
