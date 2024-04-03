@@ -1,0 +1,28 @@
+---
+# Implement your Workload deployment tasks here
+
+- name: Ensure there is connectivity to OCP cluster as system:admin
+  command: oc whoami
+  register: whoami
+  changed_when: false
+
+# - name: Install OpenShift GitOps Operator
+#   include_role:
+#     name: install_operator
+#   vars:
+#     install_operator_action: install
+#     install_operator_name: openshift-gitops-operator
+#     install_operator_channel: "stable"
+#     install_operator_catalog: redhat-operators
+#     install_operator_use_catalog_snapshot: false
+
+# - name: Install Root ArgoCD Applications (App of Apps)
+#   command: >-
+#      helm upgrade --install root-apps --namespace openshift-gitops .
+
+# Leave this as the last task in the playbook.
+- name: workload tasks complete
+  debug:
+    msg: "Workload Tasks completed successfully."
+  when: not silent|bool
+
